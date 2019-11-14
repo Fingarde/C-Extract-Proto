@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    printf "\t\033[1;31mNot enough argument\033[0m\n"
+    printf "\textract \033[1;33mFILE\033[0m\n"
+    exit
+fi
+cat "$1" | egrep '^(float|int|void|bool|double|long)' | sed 's/ {/;/g' | sed 's/{/;/g'
